@@ -15,6 +15,14 @@ configurations {
 	}
 }
 
+tasks.withType(JavaCompile) {
+
+	// Generated classes using Jodd library are unable to be read when compiled against JDK 11
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
 repositories {
 	mavenCentral()
 }
